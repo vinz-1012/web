@@ -1,0 +1,87 @@
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.class-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border-top: 5px solid #6366f1;
+  padding: 18px 18px 16px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, translate 0.18s ease;
+}
+
+.class-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.class-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.class-subject-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.class-subject-icon {
+  font-size: 18px;
+}
+
+.class-code {
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #111827;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f3f4ff;
+}
+
+.class-subject {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.class-meta {
+  font-size: 13px;
+  color: #4b5563;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.class-meta p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.class-meta-icon {
+  font-size: 14px;
+  width: 18px;
+  text-align: center;
+}
+
+.class-card-btn {
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+@media (max-width: 640px) {
+  .class-card {
+    padding: 16px;
+  }
+}
+

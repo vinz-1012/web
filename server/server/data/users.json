@@ -1,0 +1,14 @@
+[
+  {
+    "email": "lamku@123",
+    "password": "12345",
+    "fullName": "Nguyễn Quốc Lâm",
+    "phone": "123456",
+    "subjects": "Toán",
+    "area": "Thủ Đức",
+    "note": "",
+    "registeredClasses": [
+      "MSTT2971"
+    ]
+  }
+]

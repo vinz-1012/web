@@ -1,0 +1,128 @@
+.register-container {
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.register-container h2 {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.register-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #4b5563;
+}
+
+.register-form input,
+.register-form textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 9px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  font-family: inherit;
+}
+
+.register-form textarea {
+  min-height: 72px;
+  resize: vertical;
+}
+
+.register-form input:focus,
+.register-form textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.35);
+}
+
+.register-form .field-error {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #dc2626;
+}
+
+.alert {
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.alert-success {
+  background: #ecfdf3;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.alert-error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+.register-footer {
+  margin-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.register-footer-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #2563eb;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 12px;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.btn-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .register-container {
+    padding: 16px;
+  }
+
+  .grid.grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .register-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .register-footer-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .register-footer button,
+  .register-footer .register-footer-actions button {
+    width: 100%;
+  }
+}
