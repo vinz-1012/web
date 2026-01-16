@@ -20,9 +20,11 @@ npm run build
 3. Cấu hình:
    ```
    Base directory: client
-   Build command: npm run build
+   Build command: npm install && npm run build
    Publish directory: client/dist
    ```
+   
+   **Hoặc:** Nếu đã có file `netlify.toml` ở root, để Netlify tự động đọc cấu hình.
 4. Click "Show advanced" > "New variable":
    ```
    Key: VITE_API_URL

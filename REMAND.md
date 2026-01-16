@@ -7,3 +7,7 @@ npm start
 cd client
 npm install
 npm run dev
+
+git add .
+git commit -m "message"
+git push

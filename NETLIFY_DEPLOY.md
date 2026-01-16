@@ -42,9 +42,11 @@ File này giúp Netlify tự động cấu hình đúng.
 3. **Cấu hình Build Settings:**
    ```
    Base directory: client
-   Build command: npm run build
+   Build command: npm install && npm run build
    Publish directory: client/dist
    ```
+   
+   **Lưu ý:** Nếu bạn đã tạo file `netlify.toml` ở root, Netlify sẽ tự động đọc cấu hình từ file đó. Bạn có thể để trống các trường này trong UI.
 
 4. **Environment Variables:**
    - Click "Show advanced" > "New variable"
