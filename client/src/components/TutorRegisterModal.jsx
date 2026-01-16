@@ -28,7 +28,7 @@ export default function TutorRegisterModal({ open, onClose, selectedClass }) {
       const classInfo = `Mã lớp: ${selectedClass.code}\nMôn học: ${selectedClass.subject}\nĐịa chỉ: ${selectedClass.address}`
       
       // Gửi đăng ký nhận lớp với thông tin từ user và thông tin lớp vào ghi chú
-      const res = await fetch('http://localhost:4000/api/register', {
+      const res = await fetch(apiEndpoint('/api/register'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
