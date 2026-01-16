@@ -1,6 +1,6 @@
 // API Configuration
-// Sử dụng environment variable hoặc fallback về localhost cho development
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000'
+// Sử dụng environment variable nếu có, mặc định dùng relative path (phu hop Netlify Functions)
+const API_URL = import.meta.env.VITE_API_URL ?? ''
 
 export default API_URL
 
@@ -8,5 +8,8 @@ export default API_URL
 export const apiEndpoint = (path) => {
   // Đảm bảo path bắt đầu bằng /
   const cleanPath = path.startsWith('/') ? path : `/${path}`
-  return `${API_URL}${cleanPath}`
+  if (!API_URL) {
+    return cleanPath
+  }
+  return `${API_URL.replace(/\/$/, '')}${cleanPath}`
 }
