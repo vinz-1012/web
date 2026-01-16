@@ -45,7 +45,7 @@ export default function UserLogin() {
           console.error("Server response is not JSON:", text.substring(0, 200))
           // Nếu là HTML error page, có thể server chưa chạy hoặc route sai
           if (text.includes("<!DOCTYPE") || text.includes("<html")) {
-            throw new Error("Backend server chưa chạy hoặc không phản hồi. Vui lòng kiểm tra server đã khởi động chưa (port 4000).")
+            throw new Error("Backend chưa chạy hoặc không phản hồi. Hãy chạy netlify dev để bật Functions.")
           }
           throw new Error("Server trả về lỗi không mong đợi.")
         }
