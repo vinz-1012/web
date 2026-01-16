@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import ClassCard from '../components/ClassCard.jsx'
 import TutorRegisterModal from '../components/TutorRegisterModal.jsx'
 import Footer from '../components/Footer.jsx'
+import { apiEndpoint } from '../config/api.js'
 import '../components/ClassCard.css'
 import './Home.css'
 
@@ -58,7 +59,7 @@ export default function Home() {
     async function fetchClasses() {
       setLoading(true)
       try {
-        const res = await fetch('http://localhost:4000/api/classes')
+        const res = await fetch(apiEndpoint('/api/classes'))
         const text = await res.text()
         const data = JSON.parse(text)
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ClassForm from './ClassForm.jsx'
+import { apiEndpoint } from '../config/api.js'
 import '../App.css'
 
 export default function AdminDashboard() {
@@ -14,7 +15,7 @@ export default function AdminDashboard() {
   const loadClasses = async () => {
     setLoading(true)
     try {
-      const res = await fetch('http://localhost:4000/api/classes/admin')
+      const res = await fetch(apiEndpoint('/api/classes/admin'))
       const data = await res.json()
       setClasses(Array.isArray(data) ? data : [])
     } catch (err) {
@@ -57,7 +58,7 @@ export default function AdminDashboard() {
   const handleDelete = async (cls) => {
     if (!window.confirm(`Xoá lớp ${cls.code}?`)) return
     try {
-      const res = await fetch(`http://localhost:4000/api/classes/${cls.id}`, {
+      const res = await fetch(apiEndpoint(`/api/classes/${cls.id}`), {
         method: 'DELETE'
       })
       const data = await res.json()
@@ -70,7 +71,7 @@ export default function AdminDashboard() {
 
   const handleToggleStatus = async (cls) => {
     try {
-      const res = await fetch(`http://localhost:4000/api/classes/${cls.id}/status`, {
+      const res = await fetch(apiEndpoint(`/api/classes/${cls.id}/status`), {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: !cls.status })

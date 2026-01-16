@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { apiEndpoint } from "../config/api.js"
 import "./UserLogin.css"
 
 export default function UserLogin() {
@@ -29,7 +30,7 @@ export default function UserLogin() {
 
     setSubmitting(true)
     try {
-      const res = await fetch("http://localhost:4000/api/auth/login", {
+      const res = await fetch(apiEndpoint("/api/auth/login"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })

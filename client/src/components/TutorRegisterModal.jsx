@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { apiEndpoint } from '../config/api.js'
 import './TutorRegisterModal.css'
 
 export default function TutorRegisterModal({ open, onClose, selectedClass }) {
@@ -45,7 +46,7 @@ export default function TutorRegisterModal({ open, onClose, selectedClass }) {
 
       // ✅ Lưu mã lớp vào tài khoản
       try {
-        const saveClassRes = await fetch('http://localhost:4000/api/auth/save-class', {
+        const saveClassRes = await fetch(apiEndpoint('/api/auth/save-class'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

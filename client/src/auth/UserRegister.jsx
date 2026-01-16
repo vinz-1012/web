@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { apiEndpoint } from "../config/api.js";
 import "./UserRegister.css";
 
 const initialForm = {
@@ -48,7 +49,7 @@ export default function UserRegister() {
 
     setSubmitting(true);
     try {
-      const res = await fetch("http://localhost:4000/api/auth/register", {
+      const res = await fetch(apiEndpoint("/api/auth/register"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form)

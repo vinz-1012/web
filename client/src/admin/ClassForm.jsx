@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { apiEndpoint } from '../config/api.js'
 import '../App.css'
 
 const emptyClass = {
@@ -60,8 +61,8 @@ export default function ClassForm({ open, onClose, onSaved, editingClass }) {
     try {
       const method = editingClass ? 'PUT' : 'POST'
       const url = editingClass
-        ? `http://localhost:4000/api/classes/${editingClass.id}`
-        : 'http://localhost:4000/api/classes'
+        ? apiEndpoint(`/api/classes/${editingClass.id}`)
+        : apiEndpoint('/api/classes')
 
       const res = await fetch(url, {
         method,
