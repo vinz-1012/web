@@ -10,7 +10,23 @@ const app = express()
 const PORT = process.env.PORT || 4000
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || 'http://localhost:5173'
 
-app.use(cors({ origin: CLIENT_ORIGIN }))
+const allowedOrigins = CLIENT_ORIGIN.split(',')
+  .map((s) => s.trim())
+  .filter(Boolean)
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true)
+      if (allowedOrigins.includes(origin)) return callback(null, true)
+      return callback(new Error(`CORS blocked for origin: ${origin}`))
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  })
+)
+app.options('*', cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
