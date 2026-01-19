@@ -14,10 +14,21 @@ const allowedOrigins = CLIENT_ORIGIN.split(',')
   .map((s) => s.trim())
   .filter(Boolean)
 
+const isOriginAllowed = (origin) => {
+  return allowedOrigins.some((allowed) => {
+    if (allowed === origin) return true
+    if (allowed.startsWith('*.')) {
+      const suffix = allowed.slice(1)
+      return origin.endsWith(suffix)
+    }
+    return false
+  })
+}
+
 const corsOptions = {
   origin: (origin, callback) => {
     if (!origin) return callback(null, true)
-    if (allowedOrigins.includes(origin)) return callback(null, true)
+    if (isOriginAllowed(origin)) return callback(null, true)
     return callback(new Error(`CORS blocked for origin: ${origin}`))
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
